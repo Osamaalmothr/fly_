@@ -1,0 +1,322 @@
+/* =========================
+   Airline Booking - style.css
+   Organized & commented
+   ========================= */
+
+/* --------- Reset & Base --------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0
+}
+
+html,
+body {
+  height: 100%
+}
+
+body {
+  font-family: "Cairo", sans-serif;
+  background: #f6fbff;
+  color: #123;
+  line-height: 1.6;
+  overflow-x: hidden
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px
+}
+
+/* --------- Loader (airplane) --------- */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, #0077b6, #00b4d8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity .4s ease;
+}
+
+#loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none
+}
+
+.loader-plane {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  transform: rotate(-25deg);
+}
+
+.loader-plane svg {
+  width: 100%;
+  height: 100%;
+  animation: plane-fly 1.6s linear infinite
+}
+
+@keyframes plane-fly {
+  0% {
+    transform: translateX(-10px) rotate(-25deg)
+  }
+
+  50% {
+    transform: translateX(10px) rotate(-20deg)
+  }
+
+  100% {
+    transform: translateX(-10px) rotate(-25deg)
+  }
+}
+
+/* --------- Header --------- */
+header {
+  background: linear-gradient(90deg, #0077b6, #00b4d8);
+  padding: 16px 0;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(3, 37, 65, 0.12);
+  position: sticky;
+  top: 0;
+  z-index: 50
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 1.15rem
+}
+
+.brand i {
+  font-size: 20px
+}
+
+.nav {
+  list-style: none;
+  display: flex;
+  gap: 10px
+}
+
+.nav a {
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background .25s, transform .15s
+}
+
+.nav a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px)
+}
+
+/* --------- Hero / Slider (parallax feel) --------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 460px;
+  gap: 24px;
+  align-items: center;
+  padding: 28px 0
+}
+
+.hero-left h1 {
+  font-size: 2rem;
+  color: #022b44;
+  margin-bottom: 12px
+}
+
+.hero-left p {
+  color: #04506b
+}
+
+.hero-card {
+  background: #fff;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(3, 37, 65, 0.06)
+}
+
+/* parallax image container: background-attachment if image used */
+.hero-image {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(3, 37, 65, 0.06)
+}
+
+/* --------- Buttons / gradients / glow --------- */
+.btn-primary {
+  display: inline-block;
+  background: linear-gradient(45deg, #0077b6, #00b4d8);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: transform .18s, box-shadow .25s
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(0, 180, 255, 0.18)
+}
+
+/* --------- Cards / Offers --------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 26px
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(3, 37, 65, 0.06);
+  transition: transform .35s, box-shadow .35s
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform .6s ease
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(3, 37, 65, 0.12)
+}
+
+.card:hover img {
+  transform: scale(1.08)
+}
+
+.card-body {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px
+}
+
+.card-title {
+  font-weight: 700;
+  color: #022b44
+}
+
+.card-price {
+  color: #0077b6;
+  font-weight: 800
+}
+
+/* --------- Forms (unified) --------- */
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #e6f0f8;
+  background: #fff
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap
+}
+
+.form-row .form-control {
+  flex: 1
+}
+
+/* --------- Footer --------- */
+.footer {
+  background: #023e8a;
+  color: #fff;
+  padding: 26px 20px;
+  margin-top: 36px;
+  text-align: center
+}
+
+.footer a {
+  color: #ffd60a;
+  margin: 0 8px;
+  transition: opacity .2s
+}
+
+.footer a:hover {
+  opacity: 0.9
+}
+
+/* --------- Animations helpers (for AOS fallback) --------- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fadeInUp .9s forwards;
+  animation-delay: .2s
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: none
+  }
+}
+
+/* --------- Responsive --------- */
+@media(max-width:980px) {
+  .hero {
+    grid-template-columns: 1fr
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr)
+  }
+}
+
+@media(max-width:640px) {
+  .cards {
+    grid-template-columns: 1fr
+  }
+
+  .nav {
+    display: none
+  }
+
+  .brand {
+    font-size: 1rem
+  }
+
+  .hero {
+    padding: 10px 0
+  }
+}
+
+/* --------- Utility classes --------- */
+.text-center {
+  text-align: center
+}
+
+.small {
+  font-size: 0.95rem;
+  color: #456
+}
+
+.p-12 {
+  padding: 12px
+}
